@@ -42,6 +42,17 @@ module.exports = function (app) {
     }
   )
 
+  app.get('/get', async (req, res) => {
+    console.log(req.query);
+    let listClass = [
+      '课程类型一',
+      '课程类型二',
+      '课程类型三',
+      '课程类型四'
+    ];
+    return res.status(200).json({ message: 'OK', islist: true, list: listClass });
+  });
+
   // 404
   app.get('*', function (req, res) {
     res.status(200).json({
