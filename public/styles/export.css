@@ -70,7 +70,7 @@ table tbody tr > td {
   min-height: 100px;
   height: auto;
   padding: 12px;
-  background-color: #fafafa;
+  background-color: #F7F7F7;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
