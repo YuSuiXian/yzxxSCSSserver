@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const dayjs = require('dayjs')
-const uuid = require('../../utils/uuid')
+const { v4: uuidv4 } = require('uuid')
 const { query, validationResult } = require('express-validator/check')
 
 module.exports = function studentInfo(req, res) {
@@ -24,11 +24,11 @@ module.exports = function studentInfo(req, res) {
   read.count = read.data.length
   read.data.push({
     data: data,
-    date: dayjs().format(),
-    id: uuid()
+    date: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+    id: uuidv4(),
   })
 
-  fs.writeFileSync(filePath, JSON.stringify(read));
+  fs.writeFileSync(filePath, JSON.stringify(read))
 
   return true
 }

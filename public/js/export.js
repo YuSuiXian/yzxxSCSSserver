@@ -23,20 +23,24 @@ function initTable(arr) {
       '第一志愿',
       '第二志愿',
       '第三志愿',
+      '登记日期',
+      'UUID',
     ],
   ]
   let index = 1
   arr.forEach((val) => {
-    val = val.data
+    let student = val.data
     table.push([
       index++,
-      val.name,
-      val.phoneNumber,
-      val.grade,
-      val.class,
-      val.aspirationFirst,
-      val.aspirationSecond,
-      val.aspirationThree,
+      student.name,
+      student.phoneNumber,
+      student.grade,
+      student.class,
+      student.aspirationFirst,
+      student.aspirationSecond,
+      student.aspirationThree,
+      val.date,
+      val.id,
     ])
   })
 

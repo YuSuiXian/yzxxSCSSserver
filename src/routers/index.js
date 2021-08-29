@@ -1,6 +1,6 @@
 const dayjs = require('dayjs')
 const studentInfo = require('../model/student/info')
-const uuid = require('../utils/uuid')
+const { v4: uuidv4 } = require('uuid')
 
 module.exports = function (app) {
   app.all('*', function (req, res, next) {
@@ -76,7 +76,7 @@ module.exports = function (app) {
   // Error message handling
   app.use(function (err, req, res, next) {
     if (res.headersSent) return next(err)
-    const id = uuid()
+    const id = uuidv4()
     app.locals.logger.error(
       JSON.stringify({
         errorMessage: err.stack,
