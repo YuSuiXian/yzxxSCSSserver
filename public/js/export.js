@@ -1,27 +1,41 @@
 // @ts-nocheck
 import { createApp, reactive } from 'https://unpkg.com/petite-vue?module'
 
+// petite-vue https://github.com/vuejs/petite-vue
+// sheetJs https://github.com/SheetJS/sheetjs
+
 function doit(type, fn, dl) {
-  console.log(21321)
-  var elt = document.getElementById('data-table')
-  var wb = XLSX.utils.table_to_book(elt, { sheet: 'Sheet JS' })
+  let elt = document.getElementById('data-table')
+  let wb = XLSX.utils.table_to_book(elt, { sheet: 'Sheet JS' })
   return dl
     ? XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' })
     : XLSX.writeFile(wb, fn || 'StudentSCSSExport.' + (type || 'xlsx'))
 }
 
 function initTable(arr) {
-  const table = [['姓名', '电话号码', '年级', '班级', '第一志愿', '第二志愿', '第三志愿']]
-
+  const table = [
+    [
+      '索引',
+      '姓名',
+      '电话号码',
+      '年级',
+      '班级',
+      '第一志愿',
+      '第二志愿',
+      '第三志愿',
+    ],
+  ]
+  let index = 1
   arr.forEach((val) => {
     val = val.data
     table.push([
+      index++,
       val.name,
       val.phoneNumber,
       val.grade,
       val.class,
       val.aspirationFirst,
-      val.aspirationSecond ,
+      val.aspirationSecond,
       val.aspirationThree,
     ])
   })
@@ -49,6 +63,7 @@ async function init() {
     count,
     retcode,
   })
+
   console.log(store)
   createApp({
     store,

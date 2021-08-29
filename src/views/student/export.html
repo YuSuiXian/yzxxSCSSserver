@@ -25,6 +25,10 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/@kongying-tavern/normalize.css@latest"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/export.css" />
     <script
       crossorigin="anonymous"
       src="https://b.alicdn.com/s/polyfill.min.js?features=%7Ehtml5-elements%2CCSS.supports%2ClocalStorage%2Cdefault%2Ces6%2Ces2015%2Ces2016%2CElement.prototype.scroll%2CElement.prototype.scrollBy%2CglobalThis%2Cfetch%2CURLSearchParams"
@@ -43,98 +47,31 @@
     </noscript>
     <div class="app" v-scope>
       <div id="container" v-html="initTable(store.data)"></div>
-      <table id="xport">
-        <tr>
-          <td><pre>XLSX Excel 2007+ XML</pre></td>
-          <td>
-            <p id="xportxlsx" class="xport">
-              <input
-                type="submit"
-                value="Export to XLSX!"
-                @click="doit('xlsx');"
-              />
-            </p>
-            <p id="xlsxbtn" class="btn">
-              Flash required for actually downloading the generated file.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td><pre>XLSB Excel 2007+ Binary</pre></td>
-          <td>
-            <p id="xportxlsb" class="xport">
-              <input
-                type="submit"
-                value="Export to XLSB!"
-                @click="doit('xlsb');"
-              />
-            </p>
-            <p id="xlsbbtn" class="btn">
-              Flash required for actually downloading the generated file.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td><pre>XLS Excel 97-2004 Binary</pre></td>
-          <td>
-            <p id="xportbiff8" class="xport">
-              <input
-                type="submit"
-                value="Export to XLS!"
-                @click="doit('biff8', 'SheetJSTableExport.xls');"
-              />
-            </p>
-            <p id="biff8btn" class="btn">
-              Flash required for actually downloading the generated file.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td><pre>ODS</pre></td>
-          <td>
-            <p id="xportods" class="xport">
-              <input
-                type="submit"
-                value="Export to ODS!"
-                @click="doit('ods');"
-              />
-            </p>
-            <p id="odsbtn" class="btn">
-              Flash required for actually downloading the generated file.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td><pre>Flat ODS</pre></td>
-          <td>
-            <p id="xportfods" class="xport">
-              <input
-                type="submit"
-                value="Export to FODS!"
-                @click="doit('fods', 'SheetJSTableExport.fods');"
-              />
-            </p>
-            <p id="fodsbtn" class="btn">
-              Flash required for actually downloading the generated file.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td><pre>SpreadsheetML 2003</pre></td>
-          <td>
-            <p id="xportxlml" class="xport">
-              <input
-                type="submit"
-                value="Export to XLML!"
-                @click="doit('xlml', 'SheetJSTableExport.xml');"
-              />
-            </p>
-            <p id="xlmlbtn" class="btn">
-              Flash required for actually downloading the generated file.
-            </p>
-          </td>
-        </tr>
-      </table>
+      <div id="controller">
+        <input type="submit" value="Export to XLSX!" @click="doit('xlsx');" />
+
+        <input type="submit" value="Export to XLSB!" @click="doit('xlsb');" />
+
+        <input
+          type="submit"
+          value="Export to XLS!"
+          @click="doit('biff8', 'SheetJSTableExport.xls');"
+        />
+
+        <input type="submit" value="Export to ODS!" @click="doit('ods');" />
+
+        <input
+          type="submit"
+          value="Export to FODS!"
+          @click="doit('fods', 'SheetJSTableExport.fods');"
+        />
+
+        <input
+          type="submit"
+          value="Export to XLML!"
+          @click="doit('xlml', 'SheetJSTableExport.xml');"
+        />
+      </div>
     </div>
   </body>
 </html>

@@ -37,7 +37,7 @@ module.exports = function () {
 module.exports.init = function (path, app, _i18n, sessions, dbName) {
   app = app || express()
   app.set('host', process.env.NODE_ENV || 'localhost')
-  app.set('http_port', process.env.HTTP_PORT || 8080)
+  app.set('http_port', process.env.HTTP_PORT || 8088)
   app.set('https_port', process.env.HTTPS_PORT || 8443)
   app.locals.dayjs = dayjs
   app.locals.logger = createLogger('server')

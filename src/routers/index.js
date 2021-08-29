@@ -23,51 +23,46 @@ module.exports = function (app) {
     next()
   })
 
-  app.get(
-    '/student/:case',
-    function (req, res) {
-      switch (req.params.case) {
-        case 'info':
-          if (!studentInfo(req, res)) return
-          res.status(200).json({ code: '200', message: res.__('Success') })
-          break
-        case 'export':
-          res.render('student/export');
-          break;
-        default:
-          res
-            .status(400)
-            .json({ code: '400', message: res.__('InvalidParameter') })
-      }
+  app.get('/student/:case', function (req, res) {
+    switch (req.params.case) {
+      case 'info':
+        if (!studentInfo(req, res)) return
+        res.status(200).json({ code: '200', message: res.__('Success') })
+        break
+      case 'export':
+        res.render('student/export')
+        break
+      default:
+        res
+          .status(400)
+          .json({ code: '400', message: res.__('InvalidParameter') })
     }
-  )
+  })
 
   app.get('/ClassList', async (req, res) => {
-    console.log(req.query);
-    return res.status(200).json({ message: 'OK' });
-  });
+    console.log(req.query)
+    return res.status(200).json({ message: 'OK' })
+  })
 
   app.get('/Upload', async (req, res) => {
-    console.log(req.query);
+    console.log(req.query)
     if (!studentInfo(req, res)) return
-    return res.status(200).json({ message: 'OK' });
-  });
+    return res.status(200).json({ message: 'OK' })
+  })
 
   app.get('/get', async (req, res) => {
-    console.log(req.query);
-    let listClass = [
-      '课程类型一',
-      '课程类型二',
-      '课程类型三',
-      '课程类型四'
-    ];
-    return res.status(200).json({ message: 'OK', islist: true, list: listClass });
-  });
-  app.post('/post', async (req, res) => {
-    console.log(req.body);
+    console.log(req.query)
+    let listClass = ['课程类型一', '课程类型二', '课程类型三', '课程类型四']
+    return res
+      .status(200)
+      .json({ message: 'OK', islist: true, list: listClass })
+  })
 
-    return res.status(200).json({ message: 'OK' });
-  });
+  app.post('/post', async (req, res) => {
+    console.log(req.body)
+
+    return res.status(200).json({ message: 'OK' })
+  })
 
   // 404
   app.get('*', function (req, res) {
