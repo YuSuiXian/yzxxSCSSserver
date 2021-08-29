@@ -28,6 +28,12 @@ dist
 # Test coverage files
 coverage
 
+# Visual Studio 2015 cache/options directory
+.vs/
+.husky/
+.vscode/
+!/.gitignore
+
 # Typescript build info
 *.tsbuildinfo
 
