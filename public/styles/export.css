@@ -24,7 +24,15 @@ table tbody {
   border-spacing: 0;
 }
 
-table tbody > tr:first-child > td {
+table tbody > tr:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  -webkit-box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.08);
+          box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+table tbody > tr:first-child td {
   text-align: start;
   font-weight: 700;
   background-color: #fafafc;

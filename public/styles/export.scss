@@ -19,10 +19,15 @@ table tbody {
   border-collapse: separate;
   border-spacing: 0;
 
-  & > tr:first-child > td {
-    text-align: start;
-    font-weight: 700;
-    background-color: rgb(250, 250, 252);
+  & > tr:first-child{
+    position: sticky;
+    top: 0;
+    box-shadow: 2px 4px 16px rgba(0 ,0 ,0, 0.08);
+    td {
+      text-align: start;
+      font-weight: 700;
+      background-color: rgb(250, 250, 252);
+    }
   }
 
   tr {
