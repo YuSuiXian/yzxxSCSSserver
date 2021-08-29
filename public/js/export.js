@@ -7,23 +7,25 @@ function doit(type, fn, dl) {
   var wb = XLSX.utils.table_to_book(elt, { sheet: 'Sheet JS' })
   return dl
     ? XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' })
-    : XLSX.writeFile(wb, fn || 'SheetJSTableExport.' + (type || 'xlsx'))
+    : XLSX.writeFile(wb, fn || 'StudentSCSSExport.' + (type || 'xlsx'))
 }
 
 function initTable(arr) {
-  const table = [['姓名', '年级', '班级', '课程', '电话号码', '志向']]
+  const table = [['姓名', '电话号码', '年级', '班级', '第一志愿', '第二志愿', '第三志愿']]
 
   arr.forEach((val) => {
     val = val.data
     table.push([
-      val.nick,
+      val.name,
+      val.phoneNumber,
       val.grade,
       val.class,
-      val.course,
-      val.phoneNumber,
-      val.ambition,
+      val.aspirationFirst,
+      val.aspirationSecond ,
+      val.aspirationThree,
     ])
   })
+
   console.table(table)
   const ws = XLSX.utils.aoa_to_sheet(table)
   const table_string = XLSX.utils.sheet_to_html(ws, {

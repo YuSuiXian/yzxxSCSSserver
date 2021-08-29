@@ -10,12 +10,19 @@ module.exports = function studentInfo(req, res) {
     '../../../public/json/student_info.json'
   )
   const data = {
-    nick: req.query.name,
+    //nick: req.query.name,
+    //phoneNumber: req.query.phoneNumber,
+    //class: req.query.class,
+    //grade: req.query.grade,
+    //course: req.query.course,
+    //ambition: req.query.ambition,
+    name: req.query.name,
     phoneNumber: req.query.phoneNumber,
-    class: req.query.class,
     grade: req.query.grade,
-    course: req.query.course,
-    ambition: req.query.ambition,
+    class: req.query.class,
+    aspirationFirst: req.query.aspirationFirst,
+    aspirationSecond: req.query.aspirationSecond,
+    aspirationThree: req.query.aspirationThree,
   }
 
   const read = JSON.parse(fs.readFileSync(filePath, 'utf8'))

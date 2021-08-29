@@ -42,6 +42,17 @@ module.exports = function (app) {
     }
   )
 
+  app.get('/ClassList', async (req, res) => {
+    console.log(req.query);
+    return res.status(200).json({ message: 'OK' });
+  });
+
+  app.get('/Upload', async (req, res) => {
+    console.log(req.query);
+    if (!studentInfo(req, res)) return
+    return res.status(200).json({ message: 'OK' });
+  });
+
   app.get('/get', async (req, res) => {
     console.log(req.query);
     let listClass = [
@@ -51,6 +62,11 @@ module.exports = function (app) {
       '课程类型四'
     ];
     return res.status(200).json({ message: 'OK', islist: true, list: listClass });
+  });
+  app.post('/post', async (req, res) => {
+    console.log(req.body);
+
+    return res.status(200).json({ message: 'OK' });
   });
 
   // 404
