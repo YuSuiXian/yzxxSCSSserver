@@ -10,12 +10,6 @@ module.exports = function studentInfo(req, res) {
     '../../../public/json/student_info.json'
   )
   const data = {
-    //nick: req.query.name,
-    //phoneNumber: req.query.phoneNumber,
-    //class: req.query.class,
-    //grade: req.query.grade,
-    //course: req.query.course,
-    //ambition: req.query.ambition,
     name: req.query.name,
     phoneNumber: req.query.phoneNumber,
     grade: req.query.grade,
@@ -35,5 +29,6 @@ module.exports = function studentInfo(req, res) {
   })
 
   fs.writeFileSync(filePath, JSON.stringify(read));
+
   return true
 }
