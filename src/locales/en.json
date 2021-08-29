@@ -1,0 +1,7 @@
+{
+  "NotFound": "API Not Found",
+  "InvalidParameter": "Invalid Parameter",
+  "Success": "Success",
+  "UnknownError": "Unknown Error",
+  "ParameterIsEmptyOrWrong": "Parameter is empty or wrong"
+}

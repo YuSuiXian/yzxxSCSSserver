@@ -1,0 +1,58 @@
+{
+  "private": "true",
+  "scripts": {
+    "dev": "cross-env mode=development nodemon -V -w",
+    "start": "cross-env mode=production nodemon -V -w",
+    "envinfo": "npx envinfo --npmPackages  --system --browsers --binaries --duplicates",
+    "commit": "npx git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "prettier": "prettier --write .",
+    "postinstall": "husky install"
+  },
+  "license": "MIT",
+  "prettier": "@kongying-tavern/prettier-config",
+  "lint-staged": {
+    "*.{js,ts,md,json,yml}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.5.0",
+    "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "i18n": "^0.13.3",
+    "mongodb": "^4.1.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-conventional": "13.1.0",
+    "@kongying-tavern/prettier-config": "^1.0.1-1",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.4",
+    "conventional-changelog-cli": "2.1.1",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "7.0.1",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "engines": {
+    "node": ">=12.21.0"
+  }
+}

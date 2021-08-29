@@ -1,0 +1,19 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "watch": [
+    "src/**/*.*",
+    "app.js",
+    "config.js",
+    "express.js"
+  ],
+  "ignore": [
+    "test/*.spec.ts",
+    "logs/",
+    "public/",
+    "*.md"
+  ],
+  "delay": "1000",
+  "exec": "node app.js",
+  "ext": "js ts ejs yml json"
+}

@@ -1,0 +1,7 @@
+{
+  "NotFound": "API 被派蒙吃掉了😡",
+  "InvalidParameter": "派蒙无法理解该参数✋",
+  "Success": "成功",
+  "UnknownError": "未知错误",
+  "ParameterIsEmptyOrWrong": "参数为空或错误"
+}

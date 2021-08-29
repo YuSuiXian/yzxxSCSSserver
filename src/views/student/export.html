@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Export Student Info</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta name="theme-color" content="#fafafa" />
+    <meta name="msappdivcation-navbutton-color" content="#fafafa" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="lack-translucent"
+    />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="google" value="notranslate" />
+    <meta content="origin" name="referrer" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/@kongying-tavern/normalize.css@latest"
+    />
+    <script
+      crossorigin="anonymous"
+      src="https://b.alicdn.com/s/polyfill.min.js?features=%7Ehtml5-elements%2CCSS.supports%2ClocalStorage%2Cdefault%2Ces6%2Ces2015%2Ces2016%2CElement.prototype.scroll%2CElement.prototype.scrollBy%2CglobalThis%2Cfetch%2CURLSearchParams"
+    ></script>
+    <script src="//unpkg.com/xlsx/dist/shim.min.js"></script>
+    <script src="//unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="//unpkg.com/blob.js@1.0.1/Blob.js"></script>
+    <script src="//unpkg.com/file-saver@1.3.3/FileSaver.js"></script>
+    <script type="module" src="/js/export.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <h2>(:</h2>
+      <p>We"re sorry but</p>
+      <p>This page requires JavaScript to work properly</p>
+    </noscript>
+    <div class="app" v-scope>
+      <div id="container" v-html="initTable(store.data)"></div>
+      <table id="xport">
+        <tr>
+          <td><pre>XLSX Excel 2007+ XML</pre></td>
+          <td>
+            <p id="xportxlsx" class="xport">
+              <input
+                type="submit"
+                value="Export to XLSX!"
+                @click="doit('xlsx');"
+              />
+            </p>
+            <p id="xlsxbtn" class="btn">
+              Flash required for actually downloading the generated file.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td><pre>XLSB Excel 2007+ Binary</pre></td>
+          <td>
+            <p id="xportxlsb" class="xport">
+              <input
+                type="submit"
+                value="Export to XLSB!"
+                @click="doit('xlsb');"
+              />
+            </p>
+            <p id="xlsbbtn" class="btn">
+              Flash required for actually downloading the generated file.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td><pre>XLS Excel 97-2004 Binary</pre></td>
+          <td>
+            <p id="xportbiff8" class="xport">
+              <input
+                type="submit"
+                value="Export to XLS!"
+                @click="doit('biff8', 'SheetJSTableExport.xls');"
+              />
+            </p>
+            <p id="biff8btn" class="btn">
+              Flash required for actually downloading the generated file.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td><pre>ODS</pre></td>
+          <td>
+            <p id="xportods" class="xport">
+              <input
+                type="submit"
+                value="Export to ODS!"
+                @click="doit('ods');"
+              />
+            </p>
+            <p id="odsbtn" class="btn">
+              Flash required for actually downloading the generated file.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td><pre>Flat ODS</pre></td>
+          <td>
+            <p id="xportfods" class="xport">
+              <input
+                type="submit"
+                value="Export to FODS!"
+                @click="doit('fods', 'SheetJSTableExport.fods');"
+              />
+            </p>
+            <p id="fodsbtn" class="btn">
+              Flash required for actually downloading the generated file.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td><pre>SpreadsheetML 2003</pre></td>
+          <td>
+            <p id="xportxlml" class="xport">
+              <input
+                type="submit"
+                value="Export to XLML!"
+                @click="doit('xlml', 'SheetJSTableExport.xml');"
+              />
+            </p>
+            <p id="xlmlbtn" class="btn">
+              Flash required for actually downloading the generated file.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
