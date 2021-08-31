@@ -27,11 +27,11 @@ function initTable(arr) {
       'UUID',
     ],
   ]
-  let index = 1
-  arr.forEach((val) => {
-    let student = val.data
+
+  arr.forEach((value, index) => {
+    const student = value.data
     table.push([
-      index++,
+      ++index,
       student.name,
       student.phoneNumber,
       student.grade,
@@ -39,8 +39,8 @@ function initTable(arr) {
       student.aspirationFirst,
       student.aspirationSecond,
       student.aspirationThree,
-      val.date,
-      val.id,
+      value.date,
+      value.id,
     ])
   })
 
@@ -60,12 +60,11 @@ async function getData() {
 }
 
 async function init() {
-  const { data, count, retcode } = await getData()
+  const { data, count } = await getData()
 
   const store = reactive({
     data,
     count,
-    retcode,
   })
 
   console.log(store)

@@ -26,7 +26,7 @@ module.exports = function (app) {
   app.get('/student/:case', function (req, res) {
     switch (req.params.case) {
       case 'info':
-        if (!studentInfo(req, res)) return
+        if (!studentInfo(req, res, app)) return
         res.status(200).json({ code: '200', message: res.__('Success') })
         break
       case 'export':
